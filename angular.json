@@ -101,7 +101,23 @@
                 "deploy": {
                     "builder": "angular-cli-ghpages:deploy",
                     "options": {
-                        "baseHref": "https://brilliantchan.github.io/blog/",
+                        "outputPath": "docs",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": [
+                            "zone.js"
+                        ],
+                        "tsConfig": "tsconfig.app.json",
+                        "inlineStyleLanguage": "less",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/styles.less"
+                        ],
+                        "scripts": [],
+                        "baseHref": "https://brilliantchan.github.io/blog",
                         "name": "Brilliant Chan Jr. Blog",
                         "email": "brilliantchanjr@gmail.com"
                     }
