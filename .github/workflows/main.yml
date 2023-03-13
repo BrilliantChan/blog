@@ -1,7 +1,7 @@
 notifications:
     email:
         recipients:
-            - rodrigo@kamada.com.br
+            - brilliantchanjr@gmail.com
 
 language: node_js
 
