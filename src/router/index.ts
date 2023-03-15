@@ -1,19 +1,28 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 
+import toolsRoutes from './tools.routes';
+
 const routes: Array<RouteRecordRaw> = [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: HomeView
-    // },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    // }
+    {
+        path: '/',
+        component: () => import('../layouts/main-layout/index.vue'),
+	    children: [
+		    {
+                path: '/iframe',
+			    meta: {title: '浏览器', icon: 'fi-iframe'},
+			    name: 'iframeScreen',
+			    component: () => import('../pages/iframe/index.vue')
+		    }
+	    ]
+    },
+    {
+        path: '/tools',
+        component: () => import('../layouts/main-layout/index.vue'),
+	    redirect: '/tools/color',
+        children: [
+            ...toolsRoutes
+        ]
+    }
 ];
 
 const router = createRouter({

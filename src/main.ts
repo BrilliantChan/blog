@@ -1,6 +1,8 @@
-import {createApp} from 'vue';
-import App from './App.vue';
+import app from './core/lazyload';
 import router from './router';
 import store from './store';
+import './core/antdv';
 
-createApp(App).use(store).use(router).mount('#app');
+app.use(router)
+    .use(store)
+    .mount('#app');
