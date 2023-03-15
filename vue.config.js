@@ -1,4 +1,6 @@
 const {defineConfig} = require('@vue/cli-service');
+const css = require('./config/css');
+const path = require('path');
 
 module.exports = defineConfig({
     outputDir: 'docs',
@@ -7,10 +9,15 @@ module.exports = defineConfig({
 
     transpileDependencies: true,
 
+    css,
+
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'less',
-            patterns: []
+            patterns: [
+                path.resolve(__dirname, './src/assets/less/variables.less'),
+	            path.resolve(__dirname, './src/assets/less/func.less')
+            ]
         }
     }
 });
